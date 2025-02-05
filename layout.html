@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        .navbar-brand {
+            font-size: 14px;
+            padding: 15px;
+            font-weight: bold;
+            color: #FCB416;
+            white-space: nowrap;
+    
+        }
+
+        .container-fluid {
+            background-color: #074242;
+            padding:  16px;
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .container-fluid::-webkit-scrollbar {
+            display: none;
+        }
+
+        .navbar-brand:hover {
+            padding: 8px 16px;
+            background-color: orange;
+            border-radius: 6px;
+            color: white;
+            transition: 0.3s ease;
+        }
+
+        .search-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px auto;
+            max-width: 1200px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid #074242;
+            border-radius: 25px;
+            outline: none;
+            font-size: 16px;
+        }
+
+        .search-input:focus {
+            border-color: #FCB416;
+        }
+
+        .search-button {
+            position: absolute;
+            right: 10px;
+            color: #FCB416;
+            background-color: #074242;
+            border-radius: 50%;
+            padding: 8px 10px;
+            border: none;
+        }
+
+        .banner-image {
+            background-image: url(https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1731486306-Best%2520Sellers.jpg%3Fq%3D10&w=1920&q=75);
+            background-size: cover;
+            background-position: center;
+            height: 250px;
+            border-radius: 1rem;
+            margin: 20px auto;
+            max-width: 1170px;
+        }
+
+        .heading {
+            margin-left: 170px;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        .card {
+            width: 260px;
+            margin-bottom: 20px;
+            transition: 0.3s ease;
+            border: 1px solid #ddd;
+            margin-left: 13px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+
+        }
+
+        .card:hover {
+            border-color: #0b4207;
+            transform: scale(1.04);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 4px solid;
+            border-radius: 25px;
+        }
+
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .card-body {
+            padding: 15px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            font-size: 13px;
+            margin-bottom: 15px;
+            text-align: center;
+            word-spacing: 2px;
+        }
+
+        .price-tag {
+            background-color: #FCB416;
+            padding: 4px;
+            border-radius: 15px;
+            display: inline-block;
+            margin-bottom: 15px;
+            margin-left: 45px;
+            
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            margin-right: 10px;
+            color: #666;
+        }
+
+        .btna {
+            padding: 8px 20px;
+            border-radius: 20px;
+            color: #FCB416;
+            background-color: #074242;
+            border: none;
+            transition: 0.3s ease;
+            width: 100%;
+            
+                    }
+
+        .btna:hover {
+            background-color: #FCB416;
+            color: #074242;
+        }
+        .card-container-1{
+            display: flex;
+            gap: 20px;
+            margin-left: 185px;
+            
+
+        }
+        .banner-image-1{
+            background-image: url(https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1706108424-HOBNOB%2520STRAWBERRY%2520TREATS.jpg%3Fq%3D10&w=1920&q=75);
+            background-size: cover;
+            background-position: center;
+            height: 250px;
+            border-radius: 1rem;
+            margin: 20px auto;
+            max-width: 1170px;
+
+        }
+    
+
+
+
+        
+
+        
+
+    </style>
+</head>
+<body>
+    <nav class="navbar ">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Best Sellers</a>
+            <a class="navbar-brand" href="#">Strawberry Treats</a>
+            <a class="navbar-brand" href="#">Fit & Fresh</a>
+            <a class="navbar-brand" href="#">Value Packs</a>
+            <a class="navbar-brand" href="#">Biscuit Value Cake</a>
+            <a class="navbar-brand" href="#">Cakes</a>
+            <a class="navbar-brand" href="#">Customised Cakes</a>
+            <a class="navbar-brand" href="#">Brownies</a>
+            <a class="navbar-brand" href="#">Chocolates</a>
+            <a class="navbar-brand" href="#">Deserts & Pastery</a>
+            <a class="navbar-brand" href="#">Catering</a>
+        </div>
+    </nav>
+
+    <div class="search-container">
+        <input type="text" placeholder="Search for item by title...." class="search-input">
+        <button class="search-button">
+            <i class="fa-solid fa-arrow-right"></i>
+        </button>
+    </div><br><br><br>
+
+    <h3 class="heading">Flat 20% Off</h3>
+
+    <div class="banner-image"></div><br>
+
+    <div class="card-container">
+
+        <div class="card">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+
+        
+        <div class="card">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+
+    
+        <div class="card">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+
+
+        <div class="card ">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+    <div class="card-container">
+        <div class="card">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+
+        
+        <div class="card">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+
+      
+    </div>
+   <br><br>
+    <div class="banner-image-1"></div><br>
+    <div class="card-container">
+
+        <div class="card">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+
+    
+        <div class="card">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+
+    
+        <div class="card">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card ">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card-container">
+        <div class="card">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+
+    
+        <div class="card">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+
+      
+    </div>
+    <br><br>
+    <div class="banner-image-1"></div><br>
+    <div class="card-container">
+
+        <div class="card">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+
+        
+        <div class="card">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+
+
+        <div class="card ">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card-container">
+        <div class="card">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+
+      
+    </div>
+    <br><br>
+    <div class="banner-image-1"></div><br>
+    <div class="card-container">
+        
+        <div class="card">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+
+    
+        <div class="card">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+
+
+        <div class="card ">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card-container">
+        <div class="card">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+
+      
+    </div>
+    <br><br>
+    <div class="banner-image-1"></div><br>
+    <div class="card-container">
+        
+        <div class="card">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+
+        
+        <div class="card">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+
+        
+        <div class="card">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+
+    
+        <div class="card ">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card-container">
+        <div class="card">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+
+        
+        <div class="card">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+
+        
+        <div class="card">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+
+      
+    </div>
+    <br><br>
+    <div class="banner-image-1"></div><br>
+    <div class="card-container">
+
+        <div class="card">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+
+    
+        <div class="card">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+
+
+        <div class="card ">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card-container">
+        <div class="card">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://hobnob.pk/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1656418103-Double%20Fudge%20Brownies.jpg%3Fq%3D10&w=640&q=75" class="card-img-top" alt="Double Fudge Brownie">
+            <div class="card-body">
+                <h5 class="card-title">Double Fudge Brownie</h5>
+                <p class="card-text">Could chocolate get any more intense! Our Double Fudge Brownie combines a classic brownie sponge with chocolate fudge sauce which is then marbled with rows of white chocolate.</p>
+                <div class="price-tag">
+                    <span class="original-price">Rs 210</span>
+                    <span>Rs 168</span>
+                </div>
+                <button class="btna">Add to Cart</button>
+            </div>
+        </div>
+
+      
+    </div>
+   
+   
+   
+
+   
+</body>
+</html>
