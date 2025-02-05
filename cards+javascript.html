@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        .card {
+            width: 100%;
+            border-radius: 25px;
+            box-shadow: 0 1px 5px rgb(11, 49, 11);
+            transition: transform 0.3s, box-shadow 0.3s;
+            background-color:#fcf1f1;
+            border: 0.5px solid #09530b;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 45px rgba(3, 73, 26, 0.2);
+            border: 4px solid #09530b;
+        }
+        
+        .card-img-top {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: 25px;
+            border-top-right-radius: 25px;
+        }
+        
+        .card-body {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .card-title {
+            font-size: 18px;
+            color: #050505;
+            margin-bottom: 10px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        
+        .card-text {
+            font-size: 13px;
+            color: #5e5555;
+            margin-bottom: 20px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        
+        .btn {
+            padding: 7px 15px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        
+        #b1 {
+            background-color:#ddb73c;
+            color: #09530b;
+            width: 80%;
+            border-radius: 50px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        
+        #b2 {
+            background-color:#09530b;
+            color: #ddb73c;
+            width: 100%;
+            border-radius: 50px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        .btn:hover{
+            transform: scale(1.1);
+        }
+
+        /* Product Details Modal Styles */
+        .product-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        .product-modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .product-details {
+            background-color: white;
+            border-radius: 0.5rem;
+            max-width: 64rem;
+            width: 100%;
+            position: relative;
+        }
+
+        .close-button {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+            z-index: 1;
+        }
+
+        .close-button:hover {
+            color: #333;
+        }
+
+        .product-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            padding: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .product-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .modal-product-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 0.5rem;
+        }
+
+        .product-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .price-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .current-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #09530b;
+        }
+
+        .original-price {
+            font-size: 1.125rem;
+            color: #666;
+            text-decoration: line-through;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .quantity-button {
+            padding: 0.5rem 1rem;
+            font-size: 1.25rem;
+            border: 1px solid #ddd;
+            background: none;
+            cursor: pointer;
+        }
+
+        .add-to-cart-button {
+            flex: 1;
+            background-color: #09530b;
+            color: #ddb73c;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+
+        .add-to-cart-button:hover {
+            background-color: #064108;
+        }
+
+        .share-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #666;
+            border: none;
+            background: none;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .share-button:hover {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container"><br><br>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card" onclick="showProductDetails(1)">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&q=80&w=800&h=600" class="card-img-top" alt="Toffee Three Milk">
+                    <div class="card-body">
+                        <h5 class="card-title">Toffee Three Milk Value Pack</h5>
+                        <p class="card-text">Enjoy the perfect balance of caramel and crunch with our signature toffee milk cake.</p>
+                        <a href="#" class="btn" id="b1">Rs. 600</a><br><br>
+                        <a href="#" class="btn" id="b2">ADD TO CART</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card" onclick="showProductDetails(2)">
+                    <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&q=80&w=800&h=600" class="card-img-top" alt="Chocolate Truffle">
+                    <div class="card-body">
+                        <h5 class="card-title">Chocolate Truffle Delight</h5>
+                        <p class="card-text">Rich chocolate layers with smooth truffle cream filling.</p>
+                        <a href="#" class="btn" id="b1">Rs. 800</a><br><br>
+                        <a href="#" class="btn" id="b2">ADD TO CART</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card" onclick="showProductDetails(3)">
+                    <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&q=80&w=800&h=600" class="card-img-top" alt="Vanilla Bean">
+                    <div class="card-body">
+                        <h5 class="card-title">Vanilla Bean Supreme</h5>
+                        <p class="card-text">Classic vanilla cake with premium vanilla bean frosting.</p>
+                        <a href="#" class="btn" id="b1">Rs. 550</a><br><br>
+                        <a href="#" class="btn" id="b2">ADD TO CART</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card" onclick="showProductDetails(4)">
+                    <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&q=80&w=800&h=600" class="card-img-top" alt="Berry Bliss">
+                    <div class="card-body">
+                        <h5 class="card-title">Berry Bliss Cake</h5>
+                        <p class="card-text">Fresh mixed berries topped on light and fluffy cream cake.</p>
+                        <a href="#" class="btn" id="b1">Rs. 750</a><br><br>
+                        <a href="#" class="btn" id="b2">ADD TO CART</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Details Modal -->
+    <div id="productModal" class="product-modal">
+        <div class="product-details">
+            <button class="close-button" onclick="closeProductDetails()">&times;</button>
+            <div class="product-content">
+                <div>
+                    <img id="modal-product-image" class="modal-product-image" alt="Product Image">
+                </div>
+                <div class="product-info">
+                    <div>
+                        <h1 id="modal-product-name" class="h2 mb-2"></h1>
+                        <div class="price-info">
+                            <span id="modal-current-price" class="current-price"></span>
+                            <span id="modal-original-price" class="original-price"></span>
+                        </div>
+                    </div>
+                    
+                    <p id="modal-product-description" class="text-gray-600"></p>
+                    
+                    <div>
+                        <h3 class="h5 mb-2">Special Instructions</h3>
+                        <textarea
+                            class="form-control"
+                            rows="4"
+                            placeholder="Please enter instructions about this item"
+                        ></textarea>
+                    </div>
+
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="quantity-controls">
+                            <button class="quantity-button" onclick="updateQuantity(-1)">-</button>
+                            <span id="quantity">1</span>
+                            <button class="quantity-button" onclick="updateQuantity(1)">+</button>
+                        </div>
+                        <button class="add-to-cart-button" id="modal-add-to-cart-button">
+                            Add to Cart
+                        </button>
+                    </div>
+
+                    <button class="share-button">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="18" cy="5" r="3"/>
+                            <circle cx="6" cy="12" r="3"/>
+                            <circle cx="18" cy="19" r="3"/>
+                            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+                            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+                        </svg>
+                        Share
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Product data
+        const products = {
+            1: {
+                name: "Toffee Three Milk Value Pack",
+                description: "Enjoy the perfect balance of caramel and crunch with our Toffee Three Milk Value Pack.",
+                price: 600,
+                originalPrice: 750,
+                image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&q=80&w=800&h=600"
+            },
+            2: {
+                name: "Chocolate Truffle Delight",
+                description: "Rich chocolate layers with smooth truffle cream filling.",
+                price: 800,
+                originalPrice: 950,
+                image: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&q=80&w=800&h=600"
+            },
+            3: {
+                name: "Vanilla Bean Supreme",
+                description: "Classic vanilla cake with premium vanilla bean frosting.",
+                price: 550,
+                originalPrice: 700,
+                image: "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&q=80&w=800&h=600"
+            },
+            4: {
+                name: "Berry Bliss Cake",
+                description: "Fresh mixed berries topped on light and fluffy cream cake.",
+                price: 750,
+                originalPrice: 900,
+                image: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&q=80&w=800&h=600"
+            }
+        };
+
+        let currentProductId = null;
+        let quantity = 1;
+
+        function showProductDetails(productId) {
+            const product = products[productId];
+            if (product) {
+                currentProductId = productId;
+                document.getElementById('modal-product-name').textContent = product.name;
+                document.getElementById('modal-product-description').textContent = product.description;
+                document.getElementById('modal-current-price').textContent = `Rs. ${product.price}`;
+                document.getElementById('modal-original-price').textContent = `Rs. ${product.originalPrice}`;
+                document.getElementById('modal-product-image').src = product.image;
+                document.getElementById('modal-add-to-cart-button').textContent = `Add to Cart - Rs. ${product.price}`;
+                document.getElementById('productModal').classList.add('show');
+                quantity = 1;
+                document.getElementById('quantity').textContent = quantity;
+                updateAddToCartButton();
+            }
+        }
+
+        function closeProductDetails() {
+            document.getElementById('productModal').classList.remove('show');
+            currentProductId = null;
+        }
+
+        function updateQuantity(change) {
+            quantity = Math.max(1, quantity + change);
+            document.getElementById('quantity').textContent = quantity;
+            updateAddToCartButton();
+        }
+
+        function updateAddToCartButton() {
+            const product = products[currentProductId];
+            if (product) {
+                const totalPrice = product.price * quantity;
+                document.getElementById('modal-add-to-cart-button').textContent = `Add to Cart - Rs. ${totalPrice}`;
+            }
+        }
+
+        // Prevent the default behavior of anchor tags inside cards
+        document.querySelectorAll('.card .btn').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent card click when clicking buttons
+            });
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('productModal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('productModal')) {
+                closeProductDetails();
+            }
+        });
+    </script>
+</body>
+</html>
