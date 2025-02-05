@@ -79,7 +79,6 @@
             transform: scale(1.1);
         }
 
-        /* Product Details Modal Styles */
         .product-modal {
             display: none;
             position: fixed;
@@ -258,7 +257,6 @@
         </div>
     </div>
 
-    <!-- Product Details Modal -->
     <div id="productModal" class="product-modal">
         <div class="product-details">
             <button class="close-button" onclick="closeProductDetails()">&times;</button>
@@ -313,7 +311,7 @@
     </div>
 
     <script>
-        // Product data
+    
         const products = {
             1: {
                 name: "Toffee Three Milk Value Pack",
@@ -384,14 +382,14 @@
             }
         }
 
-        // Prevent the default behavior of anchor tags inside cards
+    
         document.querySelectorAll('.card .btn').forEach(button => {
             button.addEventListener('click', (e) => {
-                e.stopPropagation(); // Prevent card click when clicking buttons
+                e.stopPropagation(); 
             });
         });
 
-        // Close modal when clicking outside
+        
         document.getElementById('productModal').addEventListener('click', (e) => {
             if (e.target === document.getElementById('productModal')) {
                 closeProductDetails();
